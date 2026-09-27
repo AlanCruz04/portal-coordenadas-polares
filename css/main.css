@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header, footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lab-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.controls {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.canvas-box {
+    flex: 1;
+    text-align: center;
+}
+
+canvas {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+nav a {
+    color: #ffffff;             /* Texto en blanco puro para que contraste perfecto */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--accent-color); /* Cambia a un tono cian brillante al pasar el cursor */
+    text-decoration: underline;
+}
+
+#grupoParamN {
+    width: 100%;
+    display: block;
+}
+
+#grupoParamN label {
+    display: block;
+    margin-top: 10px;
+}
+
+#grupoParamN input[type="range"] {
+    width: 100%;
+}
+
+/* Paleta de Colores Estilo Matemático / Científico */
+:root {
+    --primary-color: #0f172a;     /* Azul marino muy oscuro y elegante para textos principales */
+    --accent-color: #0284c7;      /* Azul cian brillante para botones, enlaces y bordes destacados */
+    --bg-main: #f1f5f9;           /* Fondo general suave (gris aperlado muy limpio) */
+    --card-bg: #ffffff;           /* Fondo blanco puro para las tarjetas */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--primary-color);
+}
+
+header {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: card-bg;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+/* Tarjetas con un toque más moderno */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    border-left: 5px solid var(--accent-color);
+    margin-bottom: 2rem;
+    padding: 2rem;
+}

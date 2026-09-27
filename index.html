@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portal de Coordenadas Polares y Curvas en R²</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <h1 class="logo">Portal Polar </h1>
+                    <ul class="nav-links">
+                        <li><a href="#fundamentos">1. Fundamentos</a></li>
+                        <li><a href="#conversion">2. Conversión</a></li>
+                        <li><a href="#laboratorio">3. Laboratorio</a></li>
+                        <li><a href="#limites">4. Límites</a></li>
+                    </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="fundamentos" class="card">
+                <h2>1. Fundamentos del Sistema Polar</h2>
+                <!-- Imagen ilustrativa del sistema polar -->
+                <div style="text-align: center; margin: 20px 0;">
+    <img src="img/polar_grid.jpg" alt="Visualización avanzada de curvas polares" style="max-width: 45%; height: auto; border-radius: 10px; border: 2px solid #0284c7; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);">
+</div>
+                <div class="content-block">
+                    <h3> El Polo y el Eje Polar</h3>
+                    <p>A diferencia del sistema cartesiano basado en cuadrículas rectangulares, el sistema polar se establece mediante un punto fijo llamado <strong>Polo</strong> (origen) y una semirrecta horizontal inicial llamada <strong>Eje Polar</strong>.</p>
+                    <h3> Interpretación del Par Ordenado (r, \theta)</h3>
+                        <ul>
+                            <li><strong>Radio vector (r):</strong> Distancia dirigida desde el Polo hasta el punto geométrico.</li>
+                            <li><strong>Ángulo polar (\theta):</strong> Medida de rotación angular respecto al Eje Polar (positivo en sentido antihorario).</li>
+                        </ul>
+                    <h3> Casos Especiales: Radios y Ángulos Negativos</h3>
+                    <p><strong>Si r &lt; 0:</strong> El punto se localiza midiendo la distancia absoluta en la dirección exactamente opuesta al ángulo \theta.</p>
+                    <p><strong>Si \theta &lt; 0:</strong> El giro angular se realiza en sentido horario.</p>
+                </div>
+            </section>
+            <section id="conversion" class="card">
+                <h2>2. El "Puente" de Conversión (Cartesiano ⇄ Polar)</h2>
+                <div class="content-block">
+                    <h3> Fórmulas de Transformación</h3>
+                    <p>Relacionamos ambos sistemas mediante identidades trigonométricas y algebraicas:</p>
+                        <ul>
+                            <li><strong>De Polar a Cartesiano:</strong> x = r &middot; cos(&theta;), y = r &middot; sen(&theta;)</li>
+                            <li><strong>De Cartesiano a Polar:</strong> r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>, tan(&theta;) = y / x</li>
+                        </ul>
+                    <h3> Ejemplo Paso a Paso</h3>
+                    <p>Transformemos el punto cartesiano (1, 1) a coordenadas polares:</p>
+                        <ol>
+                            <li><strong>Radio (r):</strong> r = &radic;(1<sup>2</sup> + 1<sup>2</sup>) = &radic;2</li>
+                            <li><strong>Ángulo (&theta;):</strong> &theta; = arctan(1 / 1) = &pi; / 4 rad (45&deg;)</li>
+                            <li><strong>Resultado:</strong> Coordenada polar (&radic;2, &pi; / 4)</li>
+                        </ol>
+                </div>
+            </section>
+            <section id="laboratorio" class="card">
+                <h2>3. Laboratorio Interactivo de Curvas Polares</h2>
+                <div class="content-block">
+                    <h3> Visualizador Dinámico de Familias Polares</h3>
+                    <p>Modifica los parámetros para observar el comportamiento geométrico de las curvas:</p>
+                        <div class="lab-container">
+                            <div class="controls">
+                                <label for="tipoCurva">Familia de Curva:</label>
+                                <select id="tipoCurva">
+                                    <option value="rosa">Rosa Polar (r = a &middot; cos(n&theta;))</option>
+                                    <option value="cardioide">Cardioide (r = a &plusmn; a &middot; cos(&theta;))</option>
+                                    <option value="espiral">Espiral de Arquímedes (r = a &middot; &theta;)</option>
+                                    <option value="lemniscata">Lemniscata (r<sup>2</sup> = a<sup>2</sup> &middot; cos(2&theta;))</option>
+                                </select>
+                                <label for="paramA">Parámetro a: <span id="valA">2</span></label>
+                                <input type="range" id="paramA" min="1" max="5" step="0.5" value="2">
+                            <div id="grupoParamN">
+                                <label for="paramN">Parámetro n (frecuencia): <span id="valN">2</span></label>
+                                <input type="range" id="paramN" min="1" max="6" step="1" value="2">
+                            </div>
+                            </div>
+                            <div class="canvas-box">
+                                <canvas id="polarCanvas" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="limites" class="card">
+                <h2>4. Aplicación en Límites en Dos Variables</h2>
+                <div class="content-block">
+                    <h3> Resolución de Indeterminaciones (0/0)</h3>
+                    <p>Cuando evaluamos un límite en el origen <strong>(x, y) &rarr; (0, 0)</strong> y obtenemos una indeterminación del tipo <strong>0 / 0</strong>, el cambio a coordenadas polares mediante <strong>x = r &middot; cos(&theta;)</strong> y <strong>y = r &middot; sen(&theta;)</strong> nos permite transformar la expresión evaluando cuando el radio tiende a cero (<strong>r &rarr; 0<sup>+</sup></strong>) de forma independiente al ángulo &theta;.</p>
+                    <h3> Ejemplo Resuelto Paso a Paso</h3>
+                    <p>Analicemos el siguiente límite:</p>
+                    <p><strong>lim<sub>(x,y)&rarr;(0,0)</sub> (x<sup>3</sup> + y<sup>3</sup>) / (x<sup>2</sup> + y<sup>2</sup>)</strong></p>
+                        <ol>
+                            <li><strong>Sustitución polar:</strong> Reemplazamos x y y, recordando que x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup>.</li>
+                            <li><strong>Simplificación algebraica:</strong> lim<sub>r&rarr;0<sup>+</sup></sub> [r<sup>3</sup>(cos<sup>3</sup>(&theta;) + sen<sup>3</sup>(&theta;)) / r<sup>2</sup>] = lim<sub>r&rarr;0<sup>+</sup></sub> [r &middot; (cos<sup>3</sup>(&theta;) + sen<sup>3</sup>(&theta;))]</li>
+                            <li><strong>Evaluación del límite:</strong> Como el término trigonométrico está acotado, al multiplicar por r que tiende a 0, el límite resulta <strong>0</strong>.</li>
+                        </ol>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Universidad Tecnológica de la Zona Metropolitana del Valle de México | Cálculo Multivariable</p>
+        </footer>
+            <script src="js/main.js"></script>
+    </body>
+</html>
